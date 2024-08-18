@@ -1,0 +1,19 @@
+kind: Component
+metadata:
+  description: Small project to calculate value at risk on Saxo bank portfolio.
+  system: Finance
+  application: Investment
+  deployableUnit: SaxoBankValueAtRisk
+  version: 0.1.8
+  tags:
+  - python
+  - investment
+  - stocks
+  links:
+  - title: Telemetry
+    icon: grafana
+    url: http://grafana.mw.local/d/ddp9zh235c740b/overview?orgId=1&refresh=30s&var-service=catcode.backend.core-api&var-log_level=All&from=now-30m&to=now
+spec:
+  type: service
+  lifecycle: Development
+  owner: mw
