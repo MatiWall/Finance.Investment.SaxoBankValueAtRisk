@@ -1,6 +1,8 @@
 from pathlib import Path
 from extensions.configuration import read_configs_to_dataclass, hosting_environment
 from extensions.opentelemetry.config import configure_logging
+
+
 BASE_DIR = Path(__file__).parent
 
 

@@ -1,22 +1,26 @@
-
+import httpx
+import yfinance as yf
+import numpy as np
+from settings import config
 
 def main():
 
-    # Define your API endpoint and credentials
-    API_URL = 'https://api.saxobank.com/v1/positions'
-    ACCESS_TOKEN = 'your_access_token_here'
+    tickers = ["AAPL", "TSLA"]
+    data = yf.download(
+        tickers=tickers,
+        start="2020-01-01",
+        end="2021-01-01"
+    )
 
-    headers = {
-        'Authorization': f'Bearer {ACCESS_TOKEN}'
-    }
+    data = data['Adj Close']
 
-    response = requests.get(API_URL, headers=headers)
-    data = response.json()
+    returns = np.log(data/data.shift(1))
 
-    # Example: extracting positions
-    positions = data['positions']  # Adjust this based on actual API response structure
+    returns.cov()
 
     pass
+
+
 
 
 if __name__ == '__main__':
